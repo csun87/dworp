@@ -1,0 +1,183 @@
+There are 2,500 agents
+STARTING DISEASE SIMULATION
+Step 0: 88.15844922039612% agents healthy
+11.841550779603876% agents infected
+0.0% agents dead
+Step 1: 83.73367045933418% agents healthy
+16.013485040033714% agents infected
+0.2528445006321112% agents dead
+Step 2: 80.02528445006321% agents healthy
+19.511167298777917% agents infected
+0.4635482511588706% agents dead
+Step 3: 77.07543194268858% agents healthy
+22.4188790560472% agents infected
+0.5056890012642224% agents dead
+Step 4: 73.95701643489254% agents healthy
+25.36873156342183% agents infected
+0.67425200168563% agents dead
+Step 5: 70.41719342604299% agents healthy
+28.613569321533923% agents infected
+0.9692372524230931% agents dead
+Step 6: 68.4787189211968% agents healthy
+30.299199325748% agents infected
+1.2220817530552044% agents dead
+Step 7: 65.48672566371681% agents healthy
+33.03834808259587% agents infected
+1.4749262536873156% agents dead
+Step 8: 63.08470290771176% agents healthy
+35.18752633796882% agents infected
+1.727770754319427% agents dead
+Step 9: 62.07332490518331% agents healthy
+35.94605983986515% agents infected
+1.9806152549515381% agents dead
+Step 10: 60.13485040033713% agents healthy
+37.715971344289926% agents infected
+2.1491782553729455% agents dead
+Step 11: 56.72144964180362% agents healthy
+40.75010535187526% agents infected
+2.5284450063211126% agents dead
+Step 12: 55.37294563843236% agents healthy
+41.80362410450906% agents infected
+2.8234302570585754% agents dead
+Step 13: 52.928782132321956% agents healthy
+44.205646860514115% agents infected
+2.8655710071639273% agents dead
+Step 14: 51.70670037926675% agents healthy
+44.879898862199745% agents infected
+3.413400758533502% agents dead
+Step 15: 50.02107037505267% agents healthy
+46.0598398651496% agents infected
+3.9190897597977243% agents dead
+Step 16: 48.67256637168141% agents healthy
+47.071217867678044% agents infected
+4.256215760640539% agents dead
+Step 17: 47.23978086809945% agents healthy
+48.08259587020649% agents infected
+4.677623261694058% agents dead
+Step 18: 45.30130636325327% agents healthy
+49.473240623683104% agents infected
+5.225453013063633% agents dead
+Step 19: 43.742098609355246% agents healthy
+50.695322376738304% agents infected
+5.562579013906448% agents dead
+Step 20: 42.47787610619469% agents healthy
+51.495996628739995% agents infected
+6.026127265065318% agents dead
+Step 21: 41.29793510324484% agents healthy
+52.338811630847026% agents infected
+6.363253265908133% agents dead
+Step 22: 39.02233459755583% agents healthy
+54.31942688579857% agents infected
+6.658238516645596% agents dead
+Step 23: 37.126000842815% agents healthy
+55.583649388959124% agents infected
+7.290349768225874% agents dead
+Step 24: 36.87315634218289% agents healthy
+55.54150863885377% agents infected
+7.585335018963337% agents dead
+Step 25: 34.6818373367046% agents healthy
+57.43784239359461% agents infected
+7.880320269700801% agents dead
+Step 26: 33.24905183312263% agents healthy
+58.280657395701645% agents infected
+8.470290771175726% agents dead
+Step 27: 32.61694058154235% agents healthy
+58.53350189633375% agents infected
+8.849557522123893% agents dead
+Step 28: 30.889169827222926% agents healthy
+59.83986514959966% agents infected
+9.270965023177412% agents dead
+Step 29: 31.184155077960387% agents healthy
+58.91276864728192% agents infected
+9.90307627475769% agents dead
+Step 30: 30.467762326169407% agents healthy
+59.33417614833544% agents infected
+10.198061525495154% agents dead
+Step 31: 29.540665823851665% agents healthy
+59.797724399494314% agents infected
+10.661609776654025% agents dead
+Step 32: 27.096502317741255% agents healthy
+61.65191740412979% agents infected
+11.251580278128952% agents dead
+Step 33: 25.57943531394859% agents healthy
+62.873999157185% agents infected
+11.546565528866413% agents dead
+Step 34: 24.778761061946902% agents healthy
+63.16898440792246% agents infected
+12.052254530130636% agents dead
+Step 35: 24.399494310998737% agents healthy
+63.12684365781711% agents infected
+12.473662031184155% agents dead
+Step 36: 24.357353560893383% agents healthy
+62.53687315634218% agents infected
+13.105773282764433% agents dead
+Step 37: 24.357353560893383% agents healthy
+62.07332490518331% agents infected
+13.569321533923304% agents dead
+Step 38: 24.146649810366625% agents healthy
+61.989043404972605% agents infected
+13.864306784660767% agents dead
+Step 39: 22.545301306363253% agents healthy
+63.21112515802781% agents infected
+14.243573535608935% agents dead
+Step 40: 22.081753055204384% agents healthy
+62.958280657395704% agents infected
+14.959966287399915% agents dead
+Step 41: 21.871049304677623% agents healthy
+62.74757690686894% agents infected
+15.381373788453434% agents dead
+Step 42: 20.859671302149177% agents healthy
+63.29540665823852% agents infected
+15.844922039612305% agents dead
+Step 43: 18.710493046776232% agents healthy
+65.06531816266329% agents infected
+16.224188790560472% agents dead
+Step 44: 18.58407079646018% agents healthy
+64.77033291192583% agents infected
+16.64559629161399% agents dead
+Step 45: 17.656974294142437% agents healthy
+65.4024441635061% agents infected
+16.940581542351453% agents dead
+Step 46: 16.13990729034977% agents healthy
+66.54024441635062% agents infected
+17.31984829329962% agents dead
+Step 47: 16.224188790560472% agents healthy
+65.99241466498104% agents infected
+17.78339654445849% agents dead
+Step 48: 15.254951538137378% agents healthy
+66.70880741677202% agents infected
+18.036241045090602% agents dead
+Step 49: 14.36999578592499% agents healthy
+67.13021491782554% agents infected
+18.499789296249475% agents dead
+Step 50: 15.50779603876949% agents healthy
+65.44458491361146% agents infected
+19.047619047619047% agents dead
+Step 51: 14.075010535187527% agents healthy
+66.45596291613991% agents infected
+19.469026548672566% agents dead
+Step 52: 14.791403286978507% agents healthy
+65.4024441635061% agents infected
+19.80615254951538% agents dead
+Step 53: 12.81078803202697% agents healthy
+66.62452591656131% agents infected
+20.564686051411716% agents dead
+Step 54: 12.515802781289507% agents healthy
+66.2031184155078% agents infected
+21.281078803202696% agents dead
+Step 55: 11.841550779603876% agents healthy
+66.41382216603455% agents infected
+21.74462705436157% agents dead
+Step 56: 13.822166034555416% agents healthy
+63.80109565950274% agents infected
+22.376738305941846% agents dead
+Step 57: 14.032869785082175% agents healthy
+62.873999157185% agents infected
+23.093131057732826% agents dead
+Step 58: 13.232195533080489% agents healthy
+63.08470290771176% agents infected
+23.683101559207753% agents dead
+Step 58: 13.232195533080489% agents healthy
+63.08470290771176% agents infected
+23.683101559207753% agents dead
+ENDING SIMULATION

@@ -101,7 +101,7 @@ class ThingFactory:
 
 
 class TheEnvironment(dworp.Environment):
-    """Segregation environment that holds the grid"""
+    """Environment that holds the grid"""
     def __init__(self, grid, rng):
         super().__init__(0)
         self.grid = grid
@@ -122,17 +122,32 @@ class TheEnvironment(dworp.Environment):
 
 
 class ThingObserver(dworp.Observer):
+    def __init__(self, filename):
+        super().__init__()
+        self.filename = filename
+
     def start(self, now, agents, env):
         print("STARTING DISEASE SIMULATION\nStep {}: {}% agents healthy\n{}% agents infected\n{}% agents dead".format(now, self.get_health(agents),
         self.get_infected(agents), self.get_dead(agents)))
+        with open(self.filename, "a") as f:
+            f.write("STARTING DISEASE SIMULATION\nStep {}: {}% agents healthy\n{}% agents infected\n{}% agents dead".format(now, self.get_health(agents),
+                    self.get_infected(agents), self.get_dead(agents)))
+            f.close()
 
     def step(self, now, agents, env):
         print("\nStep {}: {}% agents healthy\n{}% agents infected\n{}% agents dead".format(now, self.get_health(agents),
         self.get_infected(agents), self.get_dead(agents)))
-
+        with open(self.filename, "a") as f:
+            f.write("\nStep {}: {}% agents healthy\n{}% agents infected\n{}% agents dead".format(now, self.get_health(agents),
+                    self.get_infected(agents), self.get_dead(agents)))
+            f.close()
     def stop(self, now, agents,env):
         print("\nStep {}: {}% agents healthy\n{}% agents infected\n{}% agents dead\nENDING SIMULATION".format(now, self.get_health(agents),
         self.get_infected(agents), self.get_dead(agents)))
+        with open(self.filename, "a") as f:
+            f.write("\nStep {}: {}% agents healthy\n{}% agents infected\n{}% agents dead\nENDING SIMULATION".format(now, self.get_health(agents),
+                    self.get_infected(agents), self.get_dead(agents)))
+            f.close()
 
     @staticmethod
     def get_health(agents):
@@ -243,7 +258,10 @@ class DiseaseSimulation(dworp.TwoStageSimulation):
 
 if __name__ == "__main__":
     logging.basicConfig(level=logging.WARN)
-
+    filename = "output.txt"
+    with open(filename,'w') as f:
+        f.write('There are 2,500 agents\n')
+        f.close()
     # parse command line
     parser = argparse.ArgumentParser()
     parser.add_argument("--density", help="density of agents (1-99)", default=95, type=int)
@@ -269,7 +287,7 @@ if __name__ == "__main__":
 
     # create and run one realization of the simulation
     observer = dworp.ChainedObserver(
-        ThingObserver(),
+        ThingObserver(filename)
     )
     if vis_flag:
         observer.append(dworp.PauseAtEndObserver(3))
