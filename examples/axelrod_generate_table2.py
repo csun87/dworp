@@ -34,8 +34,8 @@ outfilename_pkl = "table2_simout_N%d.pkl" % (N)
 #toplevelseed = 348675
 toplevelseed = 8675
 np.random.seed(toplevelseed)
-seedlist = [np.random.randint(1,2**32 - 2) for _ in range(0,len(features_list)*len(numtraits_list)*N)]
-
+seedlist = [np.random.randint(1, 2**31) for _ in range(0, len(features_list) * len(numtraits_list) * N)]
+# if you use np.random.randint(1, 2**32 -2), the script will send an error on some systems. I think 2**31 is the max
 # --- Run the Simulations ---
 
 print("begin simulation")

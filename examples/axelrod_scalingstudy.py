@@ -37,7 +37,7 @@ outfilename_pkl = "scalingtestout_N%d.pkl" % (N)
 #toplevelseed = 348675
 toplevelseed = 8675
 np.random.seed(toplevelseed)
-seedlist = [np.random.randint(1,2**32 - 2) for _ in range(0,len(square_dim_list)*N)]
+seedlist = [np.random.randint(1,2**31) for _ in range(0,len(square_dim_list)*N)]
 
 # --- Run the Simulations ---
 
