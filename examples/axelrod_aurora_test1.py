@@ -38,8 +38,8 @@ class Site(dworp.TwoStageAgent):
         self.numtraits = numtraitsper
 
     def init(self, now, env):
-        for i in range(0,len(self.state)):
-            self.state[i] = float(np.random.randint(0,high=self.numtraits))
+        for i in range(0, len(self.state)):
+            self.state[i] = float(np.random.randint(0, high=self.numtraits))
 
     # note to aurora: you need to modify next_state here!
     def step(self, now, env):
