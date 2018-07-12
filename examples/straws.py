@@ -19,7 +19,7 @@ class Person(dworp.Agent):
     # def init(self, now, env):
 
     def step(self, now, env):
-        neighbors = self.vertex.neighbors
+        neighbors = self.vertex.neighbors()
         eating_out = []
         env_aware = []
         social = []
