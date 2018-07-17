@@ -203,7 +203,7 @@ class Simulation:
         outstring = "_B"
         outname = "outputs%s.tsv" % (outstring)
         fhandle = open(outname, 'w')
-        num_agents = 10000
+        num_agents = 5000
         num_tsteps = 150
         wealth = np.random.normal(100000, 20000, num_agents)
         offsets_lat = np.random.random((num_agents, 1))
@@ -265,18 +265,19 @@ class Simulation:
         fhandle.close()
 
         with open("demographics.tsv",'w') as f:
+            f.write('Lat\tLon\tWealth\tSA\tPhone\n')
             for i in range(0,num_agents):
-                f.write('Location: {}, {}\t\t'.format(lat[i], lon[i]))
-                f.write('Wealth: {}\t'.format(wealth[i]))
-                f.write('SA: {}'.format(SA[i]))
+                f.write('{}\t{}\t'.format(lat[i], lon[i]))
+                f.write('{}\t'.format(wealth[i]))
+                f.write('{}'.format(SA[i]))
                 if agents[i].state[0] == 0:
-                    f.write('\tPhone Type: None\n')
+                    f.write('\tNone\n')
                 elif agents[i].state[0] == 1:
-                    f.write('\tPhone Type: Apple\n')
+                    f.write('\tApple\n')
                 elif agents[i].state[0] == 2:
-                    f.write('\tPhone Type: Android\n')
+                    f.write('\tAndroid\n')
             f.close()
 
 
 thistest = Simulation()
-thistest.test()
+thistest.test()      
