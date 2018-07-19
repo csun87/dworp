@@ -23,13 +23,13 @@ import pygame
 class Person(dworp.Agent):
 
     def __init__(self, vertex, numfeatures,traits):
-        super().__init__(vertex.index, numfeatures+1) # the last state remembers if we adopted RS in the past
+        super().__init__(vertex.index, numfeatures+1)  # the last state remembers if we adopted RS in the past
         vertex['agent'] = self
         self.vertex = vertex
         self.state[0:-1] = traits
-        self.rs_i = 0 # changes
-        self.eo_i = 1 # changes
-        self.ea_i = 2 # changes
+        self.rs_i = 0  # changes
+        self.eo_i = 1  # changes
+        self.ea_i = 2  # changes
         self.o_i = 3
         self.c_i = 4
         self.e_i = 5
@@ -47,7 +47,7 @@ class Person(dworp.Agent):
         # These ceiling and floor parameters are constant, so we'll compute them once here
         self.sa = self.state[self.e_i]**4
         self.rf = self.state[self.a_i]**2
-        self.eof = min( 0.1 * (float(self.state[self.w_i])/600000 + 4*self.sa + self.state[self.o_i]),1)
+        self.eof = min( 0.1 * (float(self.state[self.w_i])/600000 + 4*self.sa + self.state[self.o_i]), 1)
         self.eac = 0.25 * (float(self.state[self.a_i]) + self.state[self.c_i] + 2.0*self.rf)
 
         #lat = offsets_lon + 37.4316 # deg north
@@ -60,7 +60,7 @@ class Person(dworp.Agent):
         # In this function we update EO, EA, and then RS
 
         # we will need to look up the social activity levels (SA) of our neighbors as well as their
-        # eating out tendency (EO) and environmental awarenesses (EA)
+        # eating out tendency (EO) and environmental awareness (EA)
         neighbors = self.vertex.neighbors()
         sa_array = np.zeros((len(neighbors)))
         eo_array = np.zeros((len(neighbors)))
@@ -82,8 +82,8 @@ class Person(dworp.Agent):
         frac_for_RS = sum_for_RS/sum_for_denom
 
         # update EO
-        myEO = 1.0/(1.0 + (1.0 + self.rf)*sum_for_denom) * ( self.state[self.eo_i] + (1.0 + self.rf)*sum_for_EO )
-        myEO = min(myEO,self.eof)
+        myEO = 1.0/(1.0 + (1.0 + self.rf)*sum_for_denom) * (self.state[self.eo_i] + (1.0 + self.rf)*sum_for_EO)
+        myEO = min(myEO, self.eof)
         self.state[self.eo_i] = myEO
 
         # update EA
@@ -101,8 +101,8 @@ class Person(dworp.Agent):
                 if thistrial < curprob:
                     # stop using the RS
                     self.state[self.rs_i] = 0
-        else: # we are not currently using RS
-            if self.state[self.past_i] == 1: # we used it in the past
+        else:  # we are not currently using RS
+            if self.state[self.past_i] == 1:  # we used it in the past
                 curval = self.state[self.cd_i] * self.state[self.eo_i] * (1 - self.state[self.c_i]) / 1.5
                 if curval <= 0.5:
                     curprob = self.state[self.cd_i] * self.state[self.eo_i] * (self.rf + self.sa + self.state[self.ea_i]) / 3.0
@@ -110,7 +110,7 @@ class Person(dworp.Agent):
                     if thistrial < curprob:
                         # start using the RS again
                         self.state[self.rs_i] = 1
-            else: # we have never used it in the past
+            else:  # we have never used it in the past
                 if self.state[self.w_i] >= 150000:
                     threshval = (0.65 * (1-self.state[self.o_i]))/2
                     curval = self.state[self.cd_i] * self.state[self.eo_i] * (self.rf + self.sa + self.state[self.ea_i]) / 3.0 + 0.25*frac_for_RS
@@ -223,8 +223,8 @@ class PyGameRenderer(dworp.Observer):
     def __init__(self, zoom, fps, frames_in_anim):
         self.zoom = zoom
         self.fps = fps
-        self.width = 500
-        self.height = 500
+        self.width = 800
+        self.height = 800
 
         pygame.init()
         pygame.display.set_caption("Reusable Straw Simulation")
@@ -282,7 +282,7 @@ class RegressionTest:
         logging.basicConfig(level=logging.WARN)
         n_tsteps = 1000
         n_tsteps = 100
-        n_agents = 1000
+        n_agents = 10000
         n_fps = 4
 
         mu = np.array([0.544, 0.504, 0.466, 0.482, 0.304])
@@ -321,37 +321,37 @@ class RegressionTest:
         personalities = np.random.multivariate_normal(mu,cov,n_agents)
         personalities[personalities > 1] = 1.0
         personalities[personalities < 0] = 0.0
-        wealth = np.random.normal(300000,100000,n_agents)
+        wealth = np.random.normal(300000, 100000, n_agents)
         wealth[wealth > 600000] = 600000
-        wealth[wealth < 10000]  = 10000
-        offsets_lat = np.random.random((n_agents,1))
-        offsets_lon = np.random.random((n_agents,1))
+        wealth[wealth < 10000] = 10000
+        offsets_lat = np.random.random((n_agents, 1))
+        offsets_lon = np.random.random((n_agents, 1))
         lat = offsets_lon + 37.4316 # deg north
         lon = offsets_lat + 78.6569 # deg west
-        gender = np.random.randint(0,1,(n_agents,1))
-        education = np.random.randint(0,4,(n_agents,1))
-        #colddrinks = np.random.normal(0.80,0.15,n_agents)
+        gender = np.random.randint(0, 1, (n_agents, 1))
+        education = np.random.randint(0, 4, (n_agents, 1))
+        # colddrinks = np.random.normal(0.80, 0.15, n_agents)
         colddrinks = np.random.normal(0.90, 0.1, n_agents)
         colddrinks[colddrinks > 1] = 1
         colddrinks[colddrinks < 0] = 0
 
-        #eatingout = np.random.normal(0.70,0.10,n_agents)
-        eatingout = np.random.normal(0.90,0.10,n_agents)
+        # eatingout = np.random.normal(0.70,0.10,n_agents)
+        eatingout = np.random.normal(0.90, 0.10, n_agents)
         eatingout[eatingout > 1] = 1
         eatingout[eatingout < 0] = 0
-        envaware = np.random.random((n_agents,1))
+        envaware = np.random.random((n_agents, 1))
 
         g = igraph.Graph()
-        for i in range(0,n_agents):
+        for i in range(0, n_agents):
             g.add_vertex(i)
         vs = g.vs
         agents = []
-        for i in range(0,n_agents):
+        for i in range(0, n_agents):
             traits = np.zeros((14))
-            traits[0] = 0 # initially noone uses the reusable straw
+            traits[0] = 0  # initially noone uses the reusable straw
             traits[1] = eatingout[i]
             traits[2] = envaware[i]
-            traits[3:8] = personalities[i,:]
+            traits[3:8] = personalities[i, :]
             traits[8] = wealth[i]
             traits[9] = lat[i]
             traits[10] = lon[i]
@@ -360,12 +360,12 @@ class RegressionTest:
             traits[13] = colddrinks[i]
             difflat = lat - lat[i]
             difflon = lon - lon[i]
-            distsq = np.power(difflat,2) + np.power(difflon,2)
-            sorted = np.argsort(distsq)
+            distsq = np.power(difflat, 2) + np.power(difflon, 2)
+            sorted = np.argsort(distsq, axis=0)
             friends = sorted[1:n_friends+1]
-            for j in range(0,len(friends)):
-                g.add_edge(i,int(friends[j]))
-            curagent = Person(vs[i],14,traits)
+            for j in range(0, len(friends)):
+                g.add_edge(i, int(friends[j]))
+            curagent = Person(vs[i], 14, traits)
             agents.append(curagent)
 
         env = EEEnvironment(g)
@@ -382,9 +382,6 @@ class RegressionTest:
             print("vis_flag is True")
         else:
             print("vis_flag is False")
-        # vis does not support different colors
-        #colors = ["blue", "orange"]
-        #params = SegregationParams(density, similarity, grid_size, seed, colors)
 
         # create and run one realization of the simulation
         observer = dworp.ChainedObserver(
